@@ -11,6 +11,21 @@
 		CE3B37F228FFECAF00714A92 /* PokemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B37F128FFECAF00714A92 /* PokemonListTableViewCell.swift */; };
 		CE3B37F428FFEDD300714A92 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B37F328FFEDD300714A92 /* UITableViewCell+Extension.swift */; };
 		CE3B37F628FFF43200714A92 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B37F528FFF43200714A92 /* UIView+Extension.swift */; };
+		CE3B380229024F4B00714A92 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B380129024F4B00714A92 /* UIFont+Extension.swift */; };
+		CE3B380F29025F0100714A92 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380329025F0000714A92 /* Roboto-Regular.ttf */; };
+		CE3B381029025F0100714A92 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380429025F0000714A92 /* Roboto-Bold.ttf */; };
+		CE3B381129025F0100714A92 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380529025F0000714A92 /* Roboto-ThinItalic.ttf */; };
+		CE3B381229025F0100714A92 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380629025F0000714A92 /* Roboto-Black.ttf */; };
+		CE3B381329025F0100714A92 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380729025F0000714A92 /* Roboto-BoldItalic.ttf */; };
+		CE3B381429025F0100714A92 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380829025F0000714A92 /* Roboto-Light.ttf */; };
+		CE3B381529025F0100714A92 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380929025F0100714A92 /* Roboto-BlackItalic.ttf */; };
+		CE3B381629025F0100714A92 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380A29025F0100714A92 /* Roboto-MediumItalic.ttf */; };
+		CE3B381729025F0100714A92 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380B29025F0100714A92 /* Roboto-Thin.ttf */; };
+		CE3B381829025F0100714A92 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380C29025F0100714A92 /* Roboto-Italic.ttf */; };
+		CE3B381929025F0100714A92 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380D29025F0100714A92 /* Roboto-Medium.ttf */; };
+		CE3B381A29025F0100714A92 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE3B380E29025F0100714A92 /* Roboto-LightItalic.ttf */; };
+		CE3B381D2902611100714A92 /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B381C2902611100714A92 /* PokemonDetailsViewController.swift */; };
+		CE3B381F290268DC00714A92 /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B381E290268DC00714A92 /* PokemonDetail.swift */; };
 		CE5E43D828FFD24400B7388C /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E43D728FFD24400B7388C /* PokemonResponse.swift */; };
 		CEB2D30328FFC6ED009A2192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2D30228FFC6ED009A2192 /* AppDelegate.swift */; };
 		CEB2D30528FFC6ED009A2192 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2D30428FFC6ED009A2192 /* SceneDelegate.swift */; };
@@ -28,6 +43,21 @@
 		CE3B37F128FFECAF00714A92 /* PokemonListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListTableViewCell.swift; sourceTree = "<group>"; };
 		CE3B37F328FFEDD300714A92 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		CE3B37F528FFF43200714A92 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CE3B380129024F4B00714A92 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		CE3B380329025F0000714A92 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		CE3B380429025F0000714A92 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		CE3B380529025F0000714A92 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		CE3B380629025F0000714A92 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		CE3B380729025F0000714A92 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CE3B380829025F0000714A92 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		CE3B380929025F0100714A92 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		CE3B380A29025F0100714A92 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		CE3B380B29025F0100714A92 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		CE3B380C29025F0100714A92 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		CE3B380D29025F0100714A92 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		CE3B380E29025F0100714A92 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		CE3B381C2902611100714A92 /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
+		CE3B381E290268DC00714A92 /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
 		CE5E43D728FFD24400B7388C /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
 		CEB2D2FF28FFC6ED009A2192 /* pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2D30228FFC6ED009A2192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +99,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE3B37F829024C8600714A92 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE3B380629025F0000714A92 /* Roboto-Black.ttf */,
+				CE3B380929025F0100714A92 /* Roboto-BlackItalic.ttf */,
+				CE3B380429025F0000714A92 /* Roboto-Bold.ttf */,
+				CE3B380729025F0000714A92 /* Roboto-BoldItalic.ttf */,
+				CE3B380C29025F0100714A92 /* Roboto-Italic.ttf */,
+				CE3B380829025F0000714A92 /* Roboto-Light.ttf */,
+				CE3B380E29025F0100714A92 /* Roboto-LightItalic.ttf */,
+				CE3B380D29025F0100714A92 /* Roboto-Medium.ttf */,
+				CE3B380A29025F0100714A92 /* Roboto-MediumItalic.ttf */,
+				CE3B380329025F0000714A92 /* Roboto-Regular.ttf */,
+				CE3B380B29025F0100714A92 /* Roboto-Thin.ttf */,
+				CE3B380529025F0000714A92 /* Roboto-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CE3B381B290260EC00714A92 /* PokemonDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CE3B381C2902611100714A92 /* PokemonDetailsViewController.swift */,
+			);
+			path = PokemonDetails;
+			sourceTree = "<group>";
+		};
 		CEB2D2F628FFC6ED009A2192 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +147,7 @@
 		CEB2D30128FFC6ED009A2192 /* pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				CE3B37F829024C8600714A92 /* Fonts */,
 				CEB2D32028FFCFC3009A2192 /* Constants */,
 				CEB2D31F28FFCFB6009A2192 /* Resources */,
 				CEB2D31E28FFCFA4009A2192 /* Models */,
@@ -108,6 +166,7 @@
 		CEB2D31628FFC74F009A2192 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CE3B381B290260EC00714A92 /* PokemonDetails */,
 				CEB2D31928FFC8A1009A2192 /* PokemonList */,
 			);
 			path = Modules;
@@ -127,6 +186,7 @@
 			children = (
 				CE3B37F328FFEDD300714A92 /* UITableViewCell+Extension.swift */,
 				CE3B37F528FFF43200714A92 /* UIView+Extension.swift */,
+				CE3B380129024F4B00714A92 /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -143,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5E43D728FFD24400B7388C /* PokemonResponse.swift */,
+				CE3B381E290268DC00714A92 /* PokemonDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,8 +283,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3B381929025F0100714A92 /* Roboto-Medium.ttf in Resources */,
+				CE3B381129025F0100714A92 /* Roboto-ThinItalic.ttf in Resources */,
+				CE3B381A29025F0100714A92 /* Roboto-LightItalic.ttf in Resources */,
+				CE3B381829025F0100714A92 /* Roboto-Italic.ttf in Resources */,
+				CE3B380F29025F0100714A92 /* Roboto-Regular.ttf in Resources */,
 				CEB2D30F28FFC6F1009A2192 /* LaunchScreen.storyboard in Resources */,
+				CE3B381029025F0100714A92 /* Roboto-Bold.ttf in Resources */,
+				CE3B381729025F0100714A92 /* Roboto-Thin.ttf in Resources */,
+				CE3B381529025F0100714A92 /* Roboto-BlackItalic.ttf in Resources */,
 				CEB2D30C28FFC6F1009A2192 /* Assets.xcassets in Resources */,
+				CE3B381629025F0100714A92 /* Roboto-MediumItalic.ttf in Resources */,
+				CE3B381329025F0100714A92 /* Roboto-BoldItalic.ttf in Resources */,
+				CE3B381429025F0100714A92 /* Roboto-Light.ttf in Resources */,
+				CE3B381229025F0100714A92 /* Roboto-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,12 +351,15 @@
 			files = (
 				CEB2D32428FFD0AD009A2192 /* NetworkService.swift in Sources */,
 				CEB2D32228FFCFEB009A2192 /* Endpoints.swift in Sources */,
+				CE3B381D2902611100714A92 /* PokemonDetailsViewController.swift in Sources */,
 				CE5E43D828FFD24400B7388C /* PokemonResponse.swift in Sources */,
 				CE3B37F628FFF43200714A92 /* UIView+Extension.swift in Sources */,
 				CE3B37F428FFEDD300714A92 /* UITableViewCell+Extension.swift in Sources */,
 				CEB2D30328FFC6ED009A2192 /* AppDelegate.swift in Sources */,
 				CEB2D31828FFC89D009A2192 /* PokemonListViewController.swift in Sources */,
 				CE3B37F228FFECAF00714A92 /* PokemonListTableViewCell.swift in Sources */,
+				CE3B380229024F4B00714A92 /* UIFont+Extension.swift in Sources */,
+				CE3B381F290268DC00714A92 /* PokemonDetail.swift in Sources */,
 				CEB2D30528FFC6ED009A2192 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

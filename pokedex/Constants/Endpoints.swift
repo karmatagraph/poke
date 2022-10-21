@@ -17,15 +17,16 @@ protocol Endpoint {
 }
 
 enum Endpoints {
-    case pokemon
+    case pokemon(id: Int?)
+//    case detail(url: String?)
 }
 
 extension Endpoints {
     
     var path: String {
         switch self {
-        case .pokemon:
-            return "pokemon"
+        case .pokemon(let id):
+            return "pokemon\(id == nil ? "" : "/\(id ?? 0)")"
         }
     }
     

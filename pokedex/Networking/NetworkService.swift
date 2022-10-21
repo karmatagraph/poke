@@ -44,4 +44,27 @@ class NetworkService {
         }
     }
     
+    static func getWithURL(urlString: String?, completion: @escaping(Result<PokemonDetail,APIError>) -> Void) {
+        guard let url = URL(string: urlString ?? "") else {
+            return
+        }
+
+        AF.request(url).response { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            if statusCode >= 200 && statusCode < 300 {
+                guard let data = response.data else { return }
+                do {
+                    let result = try JSONDecoder().decode(PokemonDetail.self, from: data)
+                    completion(.success(result))
+                } catch let error {
+                    print("decode error:::\(error.localizedDescription)")
+                }
+            } else if statusCode <= 500 {
+                completion(.failure(.serverError(statusCode)))
+            } else {
+                completion(.failure(.badURL(statusCode)))
+            }
+        }
+    }
+    
 }

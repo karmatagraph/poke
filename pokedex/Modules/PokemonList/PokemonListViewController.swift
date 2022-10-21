@@ -23,6 +23,11 @@ class PokemonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        for family in UIFont.familyNames.sorted() {
+          let names = UIFont.fontNames(forFamilyName: family)
+          print("Family: \(family) Font names: \(names)")
+        }
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,13 +44,16 @@ class PokemonListViewController: UIViewController {
     }
     
     private func fetchData() {
-        NetworkService.getApi(with: Endpoints.pokemon, expecting: PokemonResponse.self) { result in
+        NetworkService.getApi(with: Endpoints.pokemon(id: nil), expecting: PokemonResponse.self) { result in
             switch result {
             case .success(let model):
                 print(model)
                 self.model = model.results
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+//                    self.tableView.beginUpdates()
+//                    self.tableView.setNeedsDisplay()
+//                    self.tableView.endUpdates()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -58,15 +66,21 @@ class PokemonListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
+        tableView.estimatedRowHeight = 100
     }
     
 }
 
 extension PokemonListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let destVC = PokemonDetailsViewController()
+        destVC.detailUrl = model[indexPath.row].url
+        destVC.name = model[indexPath.row].name
+        navigationController?.pushViewController(destVC, animated: true)
     }
+    
 }
 
 extension PokemonListViewController: UITableViewDataSource {
@@ -84,5 +98,9 @@ extension PokemonListViewController: UITableViewDataSource {
         cell.configure(with: model[indexPath.row])
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
     
 }

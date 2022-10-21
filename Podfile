@@ -7,5 +7,6 @@ target 'pokedex' do
 
   # Pods for pokedex
 pod 'Alamofire'
+pod 'Kingfisher', '~> 7.0'
 
 end
