@@ -10,8 +10,28 @@ import Kingfisher
 
 class PokemonDetailsViewController: UIViewController {
     
+    private let scrollView: UIScrollView = {
+        let scrollview = UIScrollView()
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        return scrollview
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let iconImageView: UIImageView = {
         let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.contentMode = .scaleAspectFit
+        return imgView
+    }()
+    
+    private let dummyImg: UIImageView = {
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.contentMode = .scaleAspectFit
         return imgView
     }()
@@ -21,6 +41,8 @@ class PokemonDetailsViewController: UIViewController {
         label.textColor = .label
         label.textAlignment = .center
         label.font = UIFont.scriptFont(size: 24)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -42,35 +64,51 @@ class PokemonDetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupUI()
+        setupConstraints()
     }
     
     private func setup() {
-        view.addSubview(iconImageView)
-        view.addSubview(versionLabel)
+        setupSubviews()
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
-        
         fetchData()
     }
     
-    private func setupUI() {
-        iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        versionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+    private func setupSubviews() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(iconImageView)
+        contentView.addSubview(versionLabel)
+    }
+    
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
-            iconImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            iconImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            iconImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            
+            // ScrollView
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
+            // ContentView
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
+            iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            iconImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 //            iconImageView.heightAnchor.constraint(equalToConstant: view.width - 40),
             iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor,multiplier: 1/1),
-            
-            versionLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 20),
+
+            versionLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 200),
 //            versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            versionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            versionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            versionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            versionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            versionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant:  -20)
 //            versionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            
             
         ])
     }
