@@ -16,8 +16,17 @@ class PokemonDetailsViewController: UIViewController {
         return imgView
     }()
     
+    private let versionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .center
+        label.font = UIFont.scriptFont(size: 24)
+        return label
+    }()
+    
     private let typeLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .label
         return label
     }()
     
@@ -38,6 +47,7 @@ class PokemonDetailsViewController: UIViewController {
     
     private func setup() {
         view.addSubview(iconImageView)
+        view.addSubview(versionLabel)
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
         
@@ -46,13 +56,22 @@ class PokemonDetailsViewController: UIViewController {
     
     private func setupUI() {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        versionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             iconImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             iconImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
 //            iconImageView.heightAnchor.constraint(equalToConstant: view.width - 40),
-            iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor,multiplier: 1/1)
+            iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor,multiplier: 1/1),
+            
+            versionLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 20),
+//            versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            versionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            versionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+//            versionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            
+            
         ])
     }
     
@@ -62,7 +81,7 @@ class PokemonDetailsViewController: UIViewController {
             case .success(let model):
                 print(model.name)
                 DispatchQueue.main.async {
-                    self?.setImage(model: model)
+                    self?.setDesciption(model: model)
                 }
             case .failure(_):
                 print("error fetching details")
@@ -70,7 +89,9 @@ class PokemonDetailsViewController: UIViewController {
         }
     }
     
-    private func setImage(model: PokemonDetail) {
+    private func setDesciption(model: PokemonDetail) {
+        let versions = model.gameIndices.map({$0.version.name.uppercasingFirst})
+        versionLabel.text = versions.joined(separator: ", ")
         iconImageView.kf.setImage(with: URL(string: model.sprites.other?.officialArtwork.frontDefault ?? ""))
     }
     
