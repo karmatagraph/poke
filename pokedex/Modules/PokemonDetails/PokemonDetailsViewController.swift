@@ -10,7 +10,7 @@ import Kingfisher
 
 class PokemonDetailsViewController: UIViewController {
     
-    private let scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.translatesAutoresizingMaskIntoConstraints = false
         return scrollview
@@ -22,21 +22,26 @@ class PokemonDetailsViewController: UIViewController {
         return view
     }()
     
-    private let iconImageView: UIImageView = {
+    private lazy var imgBackView: UIView = {
+        let view = UIView()
+//        view.clipsToBounds = true
+
+        view.setupBorder(width: 1, color: .label, radius: 1)
+        view.setShadow()
+        view.set(cornerRadius: 10)
+//        view.backgroundColor = .systemBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var iconImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.contentMode = .scaleAspectFit
         return imgView
     }()
     
-    private let dummyImg: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.contentMode = .scaleAspectFit
-        return imgView
-    }()
-    
-    private let versionLabel: UILabel = {
+    private lazy var versionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .center
@@ -46,10 +51,28 @@ class PokemonDetailsViewController: UIViewController {
         return label
     }()
     
-    private let typeLabel: UILabel = {
+    private lazy var typeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
+        label.backgroundColor = .systemPink
+//        label.set(cornerRadius: 10)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+//        label.clipsToBounds = true
         return label
+    }()
+    
+    private lazy var typeLabelButton: UIButton = {
+        let button = UIButton(configuration: UIButton.Configuration.plain())
+        button.setTitleColor(UIColor.label, for: .normal)
+        button.set(cornerRadius: 10)
+        button.isUserInteractionEnabled = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        button.backgroundColor = .systemRed
+        
+        return button
     }()
     
     // MARK: - Properties
@@ -77,8 +100,12 @@ class PokemonDetailsViewController: UIViewController {
     private func setupSubviews() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(iconImageView)
+        contentView.addSubview(imgBackView)
+        imgBackView.addSubview(iconImageView)
+//        contentView.addSubview(iconImageView)
         contentView.addSubview(versionLabel)
+//        contentView.addSubview(typeLabel)
+        contentView.addSubview(typeLabelButton)
     }
     
     private func setupConstraints() {
@@ -96,19 +123,44 @@ class PokemonDetailsViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            // Image back view
+//            imgBackView
 
-            iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            imgBackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            imgBackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            imgBackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 //            iconImageView.heightAnchor.constraint(equalToConstant: view.width - 40),
+            imgBackView.heightAnchor.constraint(equalTo: imgBackView.widthAnchor,multiplier: 1/1),
+            
+            iconImageView.topAnchor.constraint(equalTo: imgBackView.topAnchor),
+            iconImageView.leadingAnchor.constraint(equalTo: imgBackView.leadingAnchor),
+            iconImageView.trailingAnchor.constraint(equalTo: imgBackView.trailingAnchor),
+            iconImageView.bottomAnchor.constraint(equalTo: imgBackView.bottomAnchor),
             iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor,multiplier: 1/1),
-
-            versionLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 200),
+            
+            // type label
+//            typeLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 40),
+//            typeLabel.leadingAnchor.constraint(equalTo: versionLabel.leadingAnchor),
+//            typeLabel.trailingAnchor.constraint(lessThanOrEqualTo: versionLabel.trailingAnchor, constant: -20),
+//            typeLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
+//            typeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            
+            
+            // type label button
+            typeLabelButton.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 20),
+            typeLabelButton.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor),
+            typeLabelButton.trailingAnchor.constraint(equalTo: iconImageView.trailingAnchor),
+            typeLabelButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
+//            typeLabelButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            
+            versionLabel.topAnchor.constraint(equalTo: typeLabelButton.bottomAnchor, constant: 20),
 //            versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            versionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            versionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            versionLabel.leadingAnchor.constraint(equalTo: typeLabelButton.leadingAnchor, constant: 20),
+            versionLabel.trailingAnchor.constraint(equalTo: typeLabelButton.trailingAnchor, constant: -20),
             versionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant:  -20)
 //            versionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            
             
         ])
     }
@@ -129,7 +181,11 @@ class PokemonDetailsViewController: UIViewController {
     
     private func setDesciption(model: PokemonDetail) {
         let versions = model.gameIndices.map({$0.version.name.uppercasingFirst})
-        versionLabel.text = versions.joined(separator: ", ")
+        let types = model.types.map({ $0.type.name.uppercasingFirst })
+        typeLabel.text = types.first
+        typeLabelButton.setTitle(types.first, for: .normal)
+//        versionLabel.text = versions.joined(separator: ", ")
+        versionLabel.text = "\(versions.first ?? "") to \(versions.last ?? "")"
         iconImageView.kf.setImage(with: URL(string: model.sprites.other?.officialArtwork.frontDefault ?? ""))
     }
     

@@ -74,7 +74,7 @@ class PokemonListTableViewCell: UITableViewCell {
     }
     
     func configure(with model: Pokemon) {
-        label.text = model.name
+        label.text = model.name.uppercasingFirst
 //        subTitleLabel.text = 
         self.layoutIfNeeded()
 //        iconImageView.image = UIImage(named: "placeholder")
